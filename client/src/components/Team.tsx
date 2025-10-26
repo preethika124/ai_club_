@@ -167,7 +167,7 @@ export default function Team() {
         </motion.div>
 
         {/* Team Grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {teamMembers.map((member, index) => (
             <motion.div
               key={member.id}
@@ -179,22 +179,25 @@ export default function Team() {
               <CardContainer className="inter-var">
                 <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-6">
                   {/* Avatar */}
-                  <CardItem translateZ="50" className="flex justify-center mb-4">
-                    <div className="relative">
+                  <CardItem translateZ="100" className="flex justify-center mb-4">
+                    <div className="relative w-48 h-48 perspective-1000">
+                      {/* 3D Shadow Layer */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0891b2]/40 to-[#059669]/40 rounded-2xl blur-xl transform translate-y-2 translate-x-2" />
+                      
                       {/* Outer Gradient Ring */}
-                      <div className="w-32 h-32 rounded-full bg-gradient-to-r from-[#0891b2] to-[#059669] p-1">
+                      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#0891b2] via-[#06b6d4] to-[#059669] p-1 shadow-2xl transform transition-all duration-500 group-hover/card:shadow-[#0891b2]/50">
                         {/* White Ring */}
-                        <div className="w-full h-full rounded-full bg-white p-1">
+                        <div className="w-full h-full rounded-2xl bg-white p-1">
                           {/* Avatar - Image or Initials */}
                           {member.imageUrl ? (
                             <img
                               src={member.imageUrl}
                               alt={member.name}
-                              className="w-full h-full rounded-full object-cover"
+                              className="w-full h-full rounded-xl object-cover shadow-inner"
                             />
                           ) : (
                             <div
-                              className="w-full h-full rounded-full flex items-center justify-center text-white text-2xl font-bold"
+                              className="w-full h-full rounded-xl flex items-center justify-center text-white text-4xl font-bold shadow-inner"
                               style={{ backgroundColor: member.avatarColor }}
                             >
                               {getInitials(member.name)}
