@@ -177,38 +177,55 @@ export default function Team() {
               data-testid={`card-team-${member.name.toLowerCase().replace(/\s+/g, '-')}`}
             >
               <CardContainer className="inter-var">
-                <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-6">
+                <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-8">
                   {/* Avatar */}
-                  <CardItem translateZ="100" className="flex justify-center mb-4">
-                    <div className="relative w-48 h-48 group/avatar">
-                      {/* Sparkle Elements */}
-                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-[#0891b2] to-[#059669] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-ping transition-opacity duration-300" />
-                      <div className="absolute top-4 -left-1 w-2 h-2 bg-gradient-to-br from-[#059669] to-[#0891b2] rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 delay-100" />
-                      <div className="absolute -bottom-1 right-6 w-2.5 h-2.5 bg-gradient-to-br from-[#06b6d4] to-[#10b981] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-pulse transition-opacity duration-700 delay-200" />
+                  <CardItem translateZ="100" className="flex justify-center mb-6">
+                    <div className="relative p-4">
+                      {/* Enhanced Sparkle Elements - Multiple animated sparkles */}
+                      <div className="absolute -top-2 -right-2 w-4 h-4 bg-gradient-to-br from-[#0891b2] to-[#059669] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-ping transition-all duration-300 shadow-lg shadow-[#0891b2]/50" />
+                      <div className="absolute -top-1 right-8 w-2 h-2 bg-gradient-to-br from-[#06b6d4] to-[#0891b2] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-bounce transition-all duration-500 delay-150" />
+                      <div className="absolute top-6 -left-2 w-3 h-3 bg-gradient-to-br from-[#059669] to-[#10b981] rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-700 delay-100 shadow-md shadow-[#059669]/40" 
+                           style={{ animation: 'group-hover/card:pulse 2s ease-in-out infinite' }} />
+                      <div className="absolute -bottom-2 right-4 w-3.5 h-3.5 bg-gradient-to-br from-[#10b981] to-[#06b6d4] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-pulse transition-all duration-600 delay-200 shadow-lg shadow-[#10b981]/50" />
+                      <div className="absolute bottom-8 -left-1 w-2 h-2 bg-gradient-to-br from-[#0891b2] to-[#059669] rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-800 delay-300 animate-ping" />
+                      <div className="absolute -bottom-1 left-6 w-2.5 h-2.5 bg-gradient-to-br from-[#06b6d4] to-[#0891b2] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-bounce transition-all duration-500 delay-250" />
+                      <div className="absolute top-2 right-2 w-1.5 h-1.5 bg-white rounded-full opacity-0 group-hover/card:opacity-100 transition-all duration-400 delay-100 shadow-sm shadow-[#0891b2]/30" />
+                      <div className="absolute -top-1 left-4 w-2 h-2 bg-white rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-ping transition-all duration-600 delay-350" />
                       
                       {/* 3D Shadow Layer */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#0891b2]/20 to-[#059669]/20 rounded-2xl blur-xl transform translate-y-3 translate-x-3 opacity-60" />
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0891b2]/20 to-[#059669]/20 rounded-2xl blur-xl transform translate-y-3 translate-x-3 opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
                       
-                      {/* Main Image Container */}
-                      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover/card:shadow-[0_20px_50px_rgba(8,145,178,0.3)]">
+                      {/* Main Image Container with Tech Emoji Cursor */}
+                      <div 
+                        className="relative w-48 h-48 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover/card:shadow-[0_20px_50px_rgba(8,145,178,0.4)] group-hover/card:scale-105"
+                        style={{
+                          cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewport='0 0 40 40' style='font-size:24px;'><text y='24'>${['🤖', '💻', '⚡', '🚀', '🔬', '🧠', '⚙️', '📱'][index % 8]}</text></svg>") 20 20, pointer`
+                        }}
+                      >
                         {/* Animated Gradient Overlay */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 animate-shimmer" 
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" 
                              style={{ 
                                backgroundSize: '200% 200%',
-                               animation: 'shimmer 3s ease-in-out infinite'
+                               animation: 'shimmer 2.5s ease-in-out infinite'
                              }} 
                         />
+                        
+                        {/* Rotating Border Glow */}
+                        <div className="absolute inset-0 opacity-0 group-hover/card:opacity-100 transition-opacity duration-500">
+                          <div className="absolute inset-0 bg-gradient-to-r from-[#0891b2] via-[#059669] to-[#0891b2] rounded-2xl blur-md" 
+                               style={{ animation: 'spin 4s linear infinite' }} />
+                        </div>
                         
                         {/* Avatar - Image or Initials */}
                         {member.imageUrl ? (
                           <img
                             src={member.imageUrl}
                             alt={member.name}
-                            className="w-full h-full object-cover"
+                            className="w-full h-full object-cover relative z-10"
                           />
                         ) : (
                           <div
-                            className="w-full h-full flex items-center justify-center text-white text-4xl font-bold"
+                            className="w-full h-full flex items-center justify-center text-white text-4xl font-bold relative z-10"
                             style={{ 
                               background: `linear-gradient(135deg, ${member.avatarColor}, ${member.avatarColor}dd)`
                             }}
