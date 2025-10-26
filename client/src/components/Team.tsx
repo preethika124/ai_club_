@@ -178,26 +178,22 @@ export default function Team() {
             >
               <CardContainer className="inter-var">
                 <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-8 overflow-hidden">
-                  {/* Animated Border Beam */}
-                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
-                    {/* Moving Beam */}
-                    <div 
-                      className="absolute inset-0 rounded-2xl"
-                      style={{
-                        background: 'linear-gradient(90deg, transparent, transparent, rgba(8, 145, 178, 0.8), rgba(5, 150, 105, 0.8), transparent, transparent)',
-                        backgroundSize: '200% 100%',
-                        animation: 'borderBeam 3s linear infinite',
-                        WebkitMaskImage: 'linear-gradient(white, white) padding-box, linear-gradient(white, white)',
-                        WebkitMaskComposite: 'xor',
-                        maskComposite: 'exclude',
-                        padding: '2px',
-                      }}
-                    />
-                    {/* Corner Glows */}
-                    <div className="absolute top-0 left-0 w-3 h-3 bg-[#0891b2] rounded-full blur-sm animate-pulse" />
-                    <div className="absolute top-0 right-0 w-3 h-3 bg-[#059669] rounded-full blur-sm animate-pulse delay-200" />
-                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#059669] rounded-full blur-sm animate-pulse delay-400" />
-                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#0891b2] rounded-full blur-sm animate-pulse delay-600" />
+                  {/* Animated Border Light - Moving along edges */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden">
+                    {/* Moving Light traveling around border */}
+                    <div className="absolute w-24 h-1 bg-gradient-to-r from-transparent via-[#0891b2] to-transparent blur-sm animate-border-travel-horizontal top-0 left-0" />
+                    <div className="absolute w-1 h-24 bg-gradient-to-b from-transparent via-[#059669] to-transparent blur-sm animate-border-travel-vertical-right top-0 right-0" />
+                    <div className="absolute w-24 h-1 bg-gradient-to-r from-transparent via-[#0891b2] to-transparent blur-sm animate-border-travel-horizontal-reverse bottom-0 right-0" />
+                    <div className="absolute w-1 h-24 bg-gradient-to-b from-transparent via-[#059669] to-transparent blur-sm animate-border-travel-vertical-left bottom-0 left-0" />
+                    
+                    {/* Glowing Orb traveling around */}
+                    <div className="absolute w-4 h-4 rounded-full bg-gradient-to-br from-[#0891b2] to-[#059669] shadow-lg shadow-[#0891b2]/50 animate-travel-border" />
+                    
+                    {/* Corner Accent Lights */}
+                    <div className="absolute top-0 left-0 w-2 h-2 bg-[#0891b2] rounded-full blur-[2px] opacity-60" />
+                    <div className="absolute top-0 right-0 w-2 h-2 bg-[#059669] rounded-full blur-[2px] opacity-60" />
+                    <div className="absolute bottom-0 left-0 w-2 h-2 bg-[#059669] rounded-full blur-[2px] opacity-60" />
+                    <div className="absolute bottom-0 right-0 w-2 h-2 bg-[#0891b2] rounded-full blur-[2px] opacity-60" />
                   </div>
                   {/* Avatar */}
                   <CardItem translateZ="100" className="flex justify-center mb-6">
