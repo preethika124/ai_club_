@@ -57,10 +57,163 @@ export default function Team() {
     <section
       id="team"
       ref={ref}
-      className="py-20 md:py-32 bg-gradient-to-br from-[#f8fafc] via-[#f0fdf4] to-[#ecfdf5]"
+      className="py-20 md:py-32 bg-gradient-to-br from-[#f8fafc] via-[#f0fdf4] to-[#ecfdf5] relative overflow-hidden"
       data-testid="section-team"
     >
-      <div className="max-w-7xl mx-auto px-6">
+      {/* Floating ML Terms and Diagrams Background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {/* ML Terms */}
+        <motion.div
+          className="absolute top-[10%] left-[5%] text-[#0891b2] font-bold text-3xl opacity-10"
+          animate={{ y: [-20, 20, -20], x: [-10, 10, -10] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          Neural Network
+        </motion.div>
+        <motion.div
+          className="absolute top-[25%] right-[8%] text-[#10b981] font-semibold text-2xl opacity-10"
+          animate={{ y: [20, -20, 20], x: [10, -10, 10] }}
+          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        >
+          Deep Learning
+        </motion.div>
+        <motion.div
+          className="absolute top-[60%] left-[10%] text-[#06b6d4] font-bold text-2xl opacity-8"
+          animate={{ y: [-15, 15, -15], x: [15, -15, 15] }}
+          transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        >
+          Machine Learning
+        </motion.div>
+        <motion.div
+          className="absolute top-[75%] right-[15%] text-[#0891b2] font-semibold text-xl opacity-10"
+          animate={{ y: [10, -10, 10], x: [-5, 5, -5] }}
+          transition={{ duration: 7, repeat: Infinity, ease: "easeInOut" }}
+        >
+          TensorFlow
+        </motion.div>
+        <motion.div
+          className="absolute top-[40%] right-[20%] text-[#10b981] font-bold text-2xl opacity-8"
+          animate={{ y: [-25, 25, -25], x: [12, -12, 12] }}
+          transition={{ duration: 11, repeat: Infinity, ease: "easeInOut" }}
+        >
+          AI Models
+        </motion.div>
+        <motion.div
+          className="absolute top-[15%] left-[60%] text-[#06b6d4] font-semibold text-xl opacity-10"
+          animate={{ y: [18, -18, 18], x: [-8, 8, -8] }}
+          transition={{ duration: 8.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          Data Science
+        </motion.div>
+        <motion.div
+          className="absolute top-[50%] left-[25%] text-[#0891b2] font-bold text-lg opacity-8"
+          animate={{ y: [-12, 12, -12], x: [8, -8, 8] }}
+          transition={{ duration: 9.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          PyTorch
+        </motion.div>
+        <motion.div
+          className="absolute top-[85%] left-[40%] text-[#10b981] font-semibold text-2xl opacity-10"
+          animate={{ y: [15, -15, 15], x: [-10, 10, -10] }}
+          transition={{ duration: 10.5, repeat: Infinity, ease: "easeInOut" }}
+        >
+          CNN
+        </motion.div>
+
+        {/* Floating Neural Network Diagram */}
+        <motion.svg
+          className="absolute top-[20%] right-[30%] opacity-5"
+          width="120"
+          height="120"
+          animate={{ rotate: [0, 360], y: [-15, 15, -15] }}
+          transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+        >
+          <circle cx="20" cy="60" r="8" fill="#0891b2" />
+          <circle cx="60" cy="30" r="8" fill="#0891b2" />
+          <circle cx="60" cy="60" r="8" fill="#0891b2" />
+          <circle cx="60" cy="90" r="8" fill="#0891b2" />
+          <circle cx="100" cy="60" r="8" fill="#0891b2" />
+          <line x1="28" y1="60" x2="52" y2="35" stroke="#0891b2" strokeWidth="2" />
+          <line x1="28" y1="60" x2="52" y2="60" stroke="#0891b2" strokeWidth="2" />
+          <line x1="28" y1="60" x2="52" y2="85" stroke="#0891b2" strokeWidth="2" />
+          <line x1="68" y1="30" x2="92" y2="55" stroke="#0891b2" strokeWidth="2" />
+          <line x1="68" y1="60" x2="92" y2="60" stroke="#0891b2" strokeWidth="2" />
+          <line x1="68" y1="90" x2="92" y2="65" stroke="#0891b2" strokeWidth="2" />
+        </motion.svg>
+
+        {/* Floating Binary Tree Diagram */}
+        <motion.svg
+          className="absolute top-[65%] right-[5%] opacity-6"
+          width="100"
+          height="100"
+          animate={{ y: [20, -20, 20], x: [-10, 10, -10] }}
+          transition={{ duration: 12, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <circle cx="50" cy="15" r="8" fill="#10b981" />
+          <circle cx="25" cy="50" r="8" fill="#10b981" />
+          <circle cx="75" cy="50" r="8" fill="#10b981" />
+          <circle cx="12" cy="85" r="6" fill="#10b981" />
+          <circle cx="38" cy="85" r="6" fill="#10b981" />
+          <circle cx="62" cy="85" r="6" fill="#10b981" />
+          <circle cx="88" cy="85" r="6" fill="#10b981" />
+          <line x1="50" y1="23" x2="25" y2="42" stroke="#10b981" strokeWidth="2" />
+          <line x1="50" y1="23" x2="75" y2="42" stroke="#10b981" strokeWidth="2" />
+          <line x1="25" y1="58" x2="12" y2="77" stroke="#10b981" strokeWidth="2" />
+          <line x1="25" y1="58" x2="38" y2="77" stroke="#10b981" strokeWidth="2" />
+          <line x1="75" y1="58" x2="62" y2="77" stroke="#10b981" strokeWidth="2" />
+          <line x1="75" y1="58" x2="88" y2="77" stroke="#10b981" strokeWidth="2" />
+        </motion.svg>
+
+        {/* Floating Database Diagram */}
+        <motion.svg
+          className="absolute top-[35%] left-[3%] opacity-6"
+          width="80"
+          height="100"
+          animate={{ y: [-10, 10, -10], rotate: [0, 5, -5, 0] }}
+          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        >
+          <ellipse cx="40" cy="15" rx="35" ry="10" fill="none" stroke="#06b6d4" strokeWidth="2" />
+          <ellipse cx="40" cy="50" rx="35" ry="10" fill="none" stroke="#06b6d4" strokeWidth="2" />
+          <ellipse cx="40" cy="85" rx="35" ry="10" fill="none" stroke="#06b6d4" strokeWidth="2" />
+          <line x1="5" y1="15" x2="5" y2="85" stroke="#06b6d4" strokeWidth="2" />
+          <line x1="75" y1="15" x2="75" y2="85" stroke="#06b6d4" strokeWidth="2" />
+        </motion.svg>
+
+        {/* Floating Gear/Algorithm Diagram */}
+        <motion.svg
+          className="absolute top-[5%] left-[80%] opacity-5"
+          width="90"
+          height="90"
+          animate={{ rotate: [0, 360] }}
+          transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+        >
+          <circle cx="45" cy="45" r="20" fill="none" stroke="#10b981" strokeWidth="3" />
+          <circle cx="45" cy="45" r="12" fill="none" stroke="#10b981" strokeWidth="2" />
+          <rect x="42" y="10" width="6" height="12" fill="#10b981" />
+          <rect x="42" y="68" width="6" height="12" fill="#10b981" />
+          <rect x="10" y="42" width="12" height="6" fill="#10b981" />
+          <rect x="68" y="42" width="12" height="6" fill="#10b981" />
+        </motion.svg>
+
+        {/* Additional Small Nodes */}
+        <motion.div
+          className="absolute top-[45%] left-[50%] w-3 h-3 rounded-full bg-[#0891b2] opacity-20"
+          animate={{ scale: [1, 1.5, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-[30%] left-[75%] w-2 h-2 rounded-full bg-[#10b981] opacity-20"
+          animate={{ scale: [1, 2, 1], opacity: [0.2, 0.5, 0.2] }}
+          transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+        />
+        <motion.div
+          className="absolute top-[70%] left-[70%] w-3 h-3 rounded-full bg-[#06b6d4] opacity-20"
+          animate={{ scale: [1, 1.8, 1], opacity: [0.2, 0.4, 0.2] }}
+          transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut" }}
+        />
+      </div>
+
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
         {/* Header */}
         <div className="text-center mb-12">
           <motion.h2

@@ -6,3 +6,4 @@
 [x] 6. Added animated tech-related cursor symbols for profile cards (8 different symbols that change for each card)
 [x] 7. Updated cursors to AI/ML and CS specific icons: Neural Network, AI Brain, Gen AI, Binary Tree, Database, OS Layers, Network Nodes, Algorithm
 [x] 8. Simplified cursors to only 3 icons: Data Structures (Binary Tree - Teal), Robot/AI (Green), Database/DBMS (Cyan)
+[x] 9. Added floating ML terms and diagrams in background with subtle animations (Neural Network, Deep Learning, TensorFlow, PyTorch, CNN, etc. + diagrams)
