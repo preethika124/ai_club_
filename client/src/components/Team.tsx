@@ -177,7 +177,28 @@ export default function Team() {
               data-testid={`card-team-${member.name.toLowerCase().replace(/\s+/g, '-')}`}
             >
               <CardContainer className="inter-var">
-                <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-8">
+                <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-8 overflow-hidden">
+                  {/* Animated Border Beam */}
+                  <div className="absolute inset-0 rounded-2xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 pointer-events-none">
+                    {/* Moving Beam */}
+                    <div 
+                      className="absolute inset-0 rounded-2xl"
+                      style={{
+                        background: 'linear-gradient(90deg, transparent, transparent, rgba(8, 145, 178, 0.8), rgba(5, 150, 105, 0.8), transparent, transparent)',
+                        backgroundSize: '200% 100%',
+                        animation: 'borderBeam 3s linear infinite',
+                        WebkitMaskImage: 'linear-gradient(white, white) padding-box, linear-gradient(white, white)',
+                        WebkitMaskComposite: 'xor',
+                        maskComposite: 'exclude',
+                        padding: '2px',
+                      }}
+                    />
+                    {/* Corner Glows */}
+                    <div className="absolute top-0 left-0 w-3 h-3 bg-[#0891b2] rounded-full blur-sm animate-pulse" />
+                    <div className="absolute top-0 right-0 w-3 h-3 bg-[#059669] rounded-full blur-sm animate-pulse delay-200" />
+                    <div className="absolute bottom-0 left-0 w-3 h-3 bg-[#059669] rounded-full blur-sm animate-pulse delay-400" />
+                    <div className="absolute bottom-0 right-0 w-3 h-3 bg-[#0891b2] rounded-full blur-sm animate-pulse delay-600" />
+                  </div>
                   {/* Avatar */}
                   <CardItem translateZ="100" className="flex justify-center mb-6">
                     <div className="relative p-4">
@@ -195,12 +216,10 @@ export default function Team() {
                       {/* 3D Shadow Layer */}
                       <div className="absolute inset-0 bg-gradient-to-br from-[#0891b2]/20 to-[#059669]/20 rounded-2xl blur-xl transform translate-y-3 translate-x-3 opacity-60 group-hover/card:opacity-80 transition-opacity duration-500" />
                       
-                      {/* Main Image Container with Tech Emoji Cursor */}
+                      {/* Main Image Container with Animated Tech Cursor */}
                       <div 
-                        className="relative w-48 h-48 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover/card:shadow-[0_20px_50px_rgba(8,145,178,0.4)] group-hover/card:scale-105"
-                        style={{
-                          cursor: `url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='40' height='40' viewport='0 0 40 40' style='font-size:24px;'><text y='24'>${['🤖', '💻', '⚡', '🚀', '🔬', '🧠', '⚙️', '📱'][index % 8]}</text></svg>") 20 20, pointer`
-                        }}
+                        className="relative w-48 h-48 rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover/card:shadow-[0_20px_50px_rgba(8,145,178,0.4)] group-hover/card:scale-105 tech-cursor"
+                        data-cursor-index={index % 8}
                       >
                         {/* Animated Gradient Overlay */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/20 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500" 
