@@ -80,14 +80,38 @@ export default function Team() {
               Meet Our Team
             </motion.span>
           </motion.h2>
-          <motion.p
-            initial={{ opacity: 0, y: 20 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-lg text-[#475569] max-w-2xl mx-auto"
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={inView ? { opacity: 1 } : {}}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="text-lg text-[#475569] max-w-2xl mx-auto overflow-hidden"
           >
-            Passionate individuals driving innovation and fostering a vibrant AI community
-          </motion.p>
+            <motion.p
+              initial={{ y: 50, opacity: 0 }}
+              animate={inView ? { y: 0, opacity: 1 } : {}}
+              transition={{ 
+                duration: 0.8,
+                delay: 0.5,
+                ease: [0.25, 0.46, 0.45, 0.94]
+              }}
+            >
+              {['Passionate', 'individuals', 'driving', 'innovation', 'and', 'fostering', 'a', 'vibrant', 'AI', 'community'].map((word, index) => (
+                <motion.span
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={inView ? { opacity: 1, y: 0 } : {}}
+                  transition={{
+                    duration: 0.4,
+                    delay: 0.5 + index * 0.08,
+                    ease: "easeOut"
+                  }}
+                  className="inline-block mr-[0.3em]"
+                >
+                  {word}
+                </motion.span>
+              ))}
+            </motion.p>
+          </motion.div>
         </div>
 
         {/* Category Pills */}
