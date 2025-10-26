@@ -130,9 +130,13 @@ export default function Team() {
                 boxShadow: "0 0 0 2px rgba(8, 145, 178, 0.3)"
               }}
               whileTap={{ 
-                scale: 0.95,
-                rotate: [0, -5, 5, -5, 0],
-                transition: { duration: 0.4 }
+                scale: [1, 0.85, 1.15, 0.95, 1.05, 1],
+                rotate: [0, -10, 10, -5, 5, 0],
+                y: [0, -5, 0],
+                transition: { 
+                  duration: 0.6,
+                  ease: "easeInOut"
+                }
               }}
               className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 relative overflow-visible ${
                 activeCategory === category.id
