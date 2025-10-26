@@ -18,14 +18,14 @@ export default function Team() {
     triggerOnce: false,
     threshold: 0.1,
   });
-
-  const queryUrl = activeCategory === 'all' 
-    ? '/api/team' 
-    : `/api/team?category=${activeCategory}`;
   
-  const { data: teamMembers = [], isLoading } = useQuery<TeamMember[]>({
-    queryKey: [queryUrl],
+  const { data: allMembers = [], isLoading } = useQuery<TeamMember[]>({
+    queryKey: ['/api/team'],
   });
+
+  const teamMembers = activeCategory === 'all' 
+    ? allMembers 
+    : allMembers.filter(member => member.category === activeCategory);
 
   const getInitials = (name: string) => {
     return name.split(' ').map(n => n[0]).join('');
