@@ -14,22 +14,12 @@ const categories = [
 ];
 
 const techCursors = [
-  // Neural Network / Deep Learning
-  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'%230891b2\'><circle cx=\'4\' cy=\'12\' r=\'2\'/><circle cx=\'12\' cy=\'6\' r=\'2\'/><circle cx=\'12\' cy=\'12\' r=\'2\'/><circle cx=\'12\' cy=\'18\' r=\'2\'/><circle cx=\'20\' cy=\'12\' r=\'2\'/><path d=\'M6 12h4M6 12l6-6M6 12l6 6M14 6l4 6M14 18l4-6\' stroke=\'%230891b2\' stroke-width=\'2\' fill=\'none\'/></svg>") 16 16, pointer',
-  // AI Brain / Machine Learning
-  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2310b981\' stroke-width=\'2\'><path d=\'M12 2a10 10 0 0 0-8 16h16A10 10 0 0 0 12 2z\'/><circle cx=\'8\' cy=\'10\' r=\'1.5\' fill=\'%2310b981\'/><circle cx=\'16\' cy=\'10\' r=\'1.5\' fill=\'%2310b981\'/><path d=\'M12 8v4M9 12h6M10 14l2 2 2-2\'/></svg>") 16 16, pointer',
-  // Gen AI / Sparkles
-  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'%2306b6d4\'><path d=\'M12 2l2 7h7l-5.5 4 2 7L12 16l-5.5 4 2-7L3 9h7l2-7z\'/><circle cx=\'19\' cy=\'5\' r=\'1.5\' fill=\'%2310b981\'/><circle cx=\'5\' cy=\'19\' r=\'1\' fill=\'%230891b2\'/></svg>") 16 16, pointer',
   // Binary Tree / Data Structures
   'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%230891b2\' stroke-width=\'2.5\'><circle cx=\'12\' cy=\'4\' r=\'2\' fill=\'%230891b2\'/><circle cx=\'7\' cy=\'12\' r=\'2\' fill=\'%230891b2\'/><circle cx=\'17\' cy=\'12\' r=\'2\' fill=\'%230891b2\'/><circle cx=\'4\' cy=\'20\' r=\'2\' fill=\'%230891b2\'/><circle cx=\'10\' cy=\'20\' r=\'2\' fill=\'%230891b2\'/><circle cx=\'14\' cy=\'20\' r=\'2\' fill=\'%230891b2\'/><circle cx=\'20\' cy=\'20\' r=\'2\' fill=\'%230891b2\'/><path d=\'M12 6L7 10M12 6l5 4M7 14l-3 4M7 14l3 4M17 14l-3 4M17 14l3 4\'/></svg>") 16 16, pointer',
+  // Robot / AI
+  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'%2310b981\'><rect x=\'6\' y=\'8\' width=\'12\' height=\'12\' rx=\'2\' fill=\'%2310b981\'/><circle cx=\'9\' cy=\'12\' r=\'1\' fill=\'white\'/><circle cx=\'15\' cy=\'12\' r=\'1\' fill=\'white\'/><rect x=\'9\' y=\'15\' width=\'6\' height=\'1\' fill=\'white\'/><path d=\'M12 6V4M6 10H4M18 10h2M6 16H4M18 16h2\' stroke=\'%2310b981\' stroke-width=\'2\'/></svg>") 16 16, pointer',
   // Database / DBMS
-  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2310b981\' stroke-width=\'2.5\'><ellipse cx=\'12\' cy=\'5\' rx=\'9\' ry=\'3\' fill=\'%2310b981\' opacity=\'0.3\'/><ellipse cx=\'12\' cy=\'5\' rx=\'9\' ry=\'3\'/><path d=\'M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\'/><path d=\'M3 12c0 1.66 4 3 9 3s9-1.34 9-3\'/></svg>") 16 16, pointer',
-  // Operating System / Layers
-  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2306b6d4\' stroke-width=\'2\'><rect x=\'3\' y=\'3\' width=\'18\' height=\'5\' rx=\'1\' fill=\'%2306b6d4\' opacity=\'0.3\'/><rect x=\'3\' y=\'10\' width=\'18\' height=\'5\' rx=\'1\' fill=\'%2306b6d4\' opacity=\'0.5\'/><rect x=\'3\' y=\'17\' width=\'18\' height=\'5\' rx=\'1\' fill=\'%2306b6d4\' opacity=\'0.7\'/></svg>") 16 16, pointer',
-  // Networking / Network Nodes
-  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'%230891b2\'><circle cx=\'12\' cy=\'12\' r=\'3\'/><circle cx=\'4\' cy=\'4\' r=\'2\'/><circle cx=\'20\' cy=\'4\' r=\'2\'/><circle cx=\'4\' cy=\'20\' r=\'2\'/><circle cx=\'20\' cy=\'20\' r=\'2\'/><path d=\'M5.5 5.5L9 9M18.5 5.5L15 9M5.5 18.5L9 15M18.5 18.5L15 15\' stroke=\'%230891b2\' stroke-width=\'2\' fill=\'none\'/></svg>") 16 16, pointer',
-  // Algorithm / Flowchart
-  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2310b981\' stroke-width=\'2\'><rect x=\'8\' y=\'2\' width=\'8\' height=\'4\' rx=\'1\' fill=\'%2310b981\'/><path d=\'M12 6v3\'/><path d=\'M7 9l5 4 5-4z\' fill=\'%2310b981\'/><path d=\'M12 13v3\'/><rect x=\'8\' y=\'16\' width=\'8\' height=\'4\' rx=\'1\' fill=\'%2310b981\'/></svg>") 16 16, pointer',
+  'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'32\' height=\'32\' viewBox=\'0 0 24 24\' fill=\'none\' stroke=\'%2306b6d4\' stroke-width=\'2.5\'><ellipse cx=\'12\' cy=\'5\' rx=\'9\' ry=\'3\' fill=\'%2306b6d4\' opacity=\'0.3\'/><ellipse cx=\'12\' cy=\'5\' rx=\'9\' ry=\'3\'/><path d=\'M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5\'/><path d=\'M3 12c0 1.66 4 3 9 3s9-1.34 9-3\'/></svg>") 16 16, pointer',
 ];
 
 export default function Team() {
