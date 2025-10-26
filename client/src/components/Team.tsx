@@ -180,30 +180,42 @@ export default function Team() {
                 <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-6">
                   {/* Avatar */}
                   <CardItem translateZ="100" className="flex justify-center mb-4">
-                    <div className="relative w-48 h-48 perspective-1000">
-                      {/* 3D Shadow Layer */}
-                      <div className="absolute inset-0 bg-gradient-to-br from-[#0891b2]/40 to-[#059669]/40 rounded-2xl blur-xl transform translate-y-2 translate-x-2" />
+                    <div className="relative w-48 h-48 group/avatar">
+                      {/* Sparkle Elements */}
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-gradient-to-br from-[#0891b2] to-[#059669] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-ping transition-opacity duration-300" />
+                      <div className="absolute top-4 -left-1 w-2 h-2 bg-gradient-to-br from-[#059669] to-[#0891b2] rounded-full opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 delay-100" />
+                      <div className="absolute -bottom-1 right-6 w-2.5 h-2.5 bg-gradient-to-br from-[#06b6d4] to-[#10b981] rounded-full opacity-0 group-hover/card:opacity-100 group-hover/card:animate-pulse transition-opacity duration-700 delay-200" />
                       
-                      {/* Outer Gradient Ring */}
-                      <div className="relative w-full h-full rounded-2xl bg-gradient-to-br from-[#0891b2] via-[#06b6d4] to-[#059669] p-1 shadow-2xl transform transition-all duration-500 group-hover/card:shadow-[#0891b2]/50">
-                        {/* White Ring */}
-                        <div className="w-full h-full rounded-2xl bg-white p-1">
-                          {/* Avatar - Image or Initials */}
-                          {member.imageUrl ? (
-                            <img
-                              src={member.imageUrl}
-                              alt={member.name}
-                              className="w-full h-full rounded-xl object-cover shadow-inner"
-                            />
-                          ) : (
-                            <div
-                              className="w-full h-full rounded-xl flex items-center justify-center text-white text-4xl font-bold shadow-inner"
-                              style={{ backgroundColor: member.avatarColor }}
-                            >
-                              {getInitials(member.name)}
-                            </div>
-                          )}
-                        </div>
+                      {/* 3D Shadow Layer */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-[#0891b2]/20 to-[#059669]/20 rounded-2xl blur-xl transform translate-y-3 translate-x-3 opacity-60" />
+                      
+                      {/* Main Image Container */}
+                      <div className="relative w-full h-full rounded-2xl overflow-hidden shadow-2xl transform transition-all duration-500 group-hover/card:shadow-[0_20px_50px_rgba(8,145,178,0.3)]">
+                        {/* Animated Gradient Overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/10 to-transparent opacity-0 group-hover/card:opacity-100 transition-opacity duration-500 animate-shimmer" 
+                             style={{ 
+                               backgroundSize: '200% 200%',
+                               animation: 'shimmer 3s ease-in-out infinite'
+                             }} 
+                        />
+                        
+                        {/* Avatar - Image or Initials */}
+                        {member.imageUrl ? (
+                          <img
+                            src={member.imageUrl}
+                            alt={member.name}
+                            className="w-full h-full object-cover"
+                          />
+                        ) : (
+                          <div
+                            className="w-full h-full flex items-center justify-center text-white text-4xl font-bold"
+                            style={{ 
+                              background: `linear-gradient(135deg, ${member.avatarColor}, ${member.avatarColor}dd)`
+                            }}
+                          >
+                            {getInitials(member.name)}
+                          </div>
+                        )}
                       </div>
                     </div>
                   </CardItem>
