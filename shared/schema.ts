@@ -12,6 +12,7 @@ export const teamMembers = pgTable("team_members", {
   year: text("year"),
   linkedIn: text("linkedin_url"),
   avatarColor: text("avatar_color").notNull(),
+  imageUrl: text("image_url"), // Optional profile image URL
 });
 
 export const insertTeamMemberSchema = createInsertSchema(teamMembers).omit({ id: true });

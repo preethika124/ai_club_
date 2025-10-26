@@ -185,13 +185,21 @@ export default function Team() {
                       <div className="w-32 h-32 rounded-full bg-gradient-to-r from-[#0891b2] to-[#059669] p-1">
                         {/* White Ring */}
                         <div className="w-full h-full rounded-full bg-white p-1">
-                          {/* Avatar */}
-                          <div
-                            className="w-full h-full rounded-full flex items-center justify-center text-white text-2xl font-bold"
-                            style={{ backgroundColor: member.avatarColor }}
-                          >
-                            {getInitials(member.name)}
-                          </div>
+                          {/* Avatar - Image or Initials */}
+                          {member.imageUrl ? (
+                            <img
+                              src={member.imageUrl}
+                              alt={member.name}
+                              className="w-full h-full rounded-full object-cover"
+                            />
+                          ) : (
+                            <div
+                              className="w-full h-full rounded-full flex items-center justify-center text-white text-2xl font-bold"
+                              style={{ backgroundColor: member.avatarColor }}
+                            >
+                              {getInitials(member.name)}
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
