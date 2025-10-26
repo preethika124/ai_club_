@@ -52,19 +52,51 @@ export default function Team() {
     >
       <div className="max-w-7xl mx-auto px-6">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={inView ? { opacity: 1, y: 0 } : {}}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-12"
-        >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-[#0891b2] to-[#059669] bg-clip-text text-transparent tracking-tight">
-            Meet Our Team
-          </h2>
-          <p className="text-lg text-[#475569] max-w-2xl mx-auto">
+        <div className="text-center mb-12">
+          <motion.h2
+            initial={{ opacity: 0, scale: 0.5, rotateX: -90 }}
+            animate={inView ? { opacity: 1, scale: 1, rotateX: 0 } : {}}
+            transition={{ 
+              duration: 0.8,
+              ease: [0.34, 1.56, 0.64, 1],
+              type: "spring",
+              stiffness: 100
+            }}
+            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight relative inline-block"
+          >
+            <span className="relative">
+              <motion.span
+                initial={{ backgroundPosition: "0% 50%" }}
+                animate={inView ? {
+                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+                } : {}}
+                transition={{
+                  duration: 5,
+                  ease: "linear",
+                  repeat: Infinity,
+                }}
+                className="bg-gradient-to-r from-[#0891b2] via-[#059669] to-[#0891b2] bg-clip-text text-transparent"
+                style={{ backgroundSize: "200% auto" }}
+              >
+                Meet Our Team
+              </motion.span>
+              <motion.span
+                initial={{ scaleX: 0 }}
+                animate={inView ? { scaleX: 1 } : {}}
+                transition={{ duration: 0.8, delay: 0.5 }}
+                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0891b2] to-[#059669] origin-left rounded-full"
+              />
+            </span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={inView ? { opacity: 1, y: 0 } : {}}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-lg text-[#475569] max-w-2xl mx-auto"
+          >
             Passionate individuals driving innovation and fostering a vibrant AI community
-          </p>
-        </motion.div>
+          </motion.p>
+        </div>
 
         {/* Category Pills */}
         <motion.div
