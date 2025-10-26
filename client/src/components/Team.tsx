@@ -15,7 +15,7 @@ const categories = [
 export default function Team() {
   const [activeCategory, setActiveCategory] = useState('all');
   const [ref, inView] = useInView({
-    triggerOnce: true,
+    triggerOnce: false,
     threshold: 0.1,
   });
 
