@@ -62,31 +62,23 @@ export default function Team() {
               type: "spring",
               stiffness: 100
             }}
-            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight relative inline-block"
+            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
           >
-            <span className="relative">
-              <motion.span
-                initial={{ backgroundPosition: "0% 50%" }}
-                animate={inView ? {
-                  backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
-                } : {}}
-                transition={{
-                  duration: 5,
-                  ease: "linear",
-                  repeat: Infinity,
-                }}
-                className="bg-gradient-to-r from-[#0891b2] via-[#059669] to-[#0891b2] bg-clip-text text-transparent"
-                style={{ backgroundSize: "200% auto" }}
-              >
-                Meet Our Team
-              </motion.span>
-              <motion.span
-                initial={{ scaleX: 0 }}
-                animate={inView ? { scaleX: 1 } : {}}
-                transition={{ duration: 0.8, delay: 0.5 }}
-                className="absolute bottom-0 left-0 right-0 h-1 bg-gradient-to-r from-[#0891b2] to-[#059669] origin-left rounded-full"
-              />
-            </span>
+            <motion.span
+              initial={{ backgroundPosition: "0% 50%" }}
+              animate={inView ? {
+                backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
+              } : {}}
+              transition={{
+                duration: 5,
+                ease: "linear",
+                repeat: Infinity,
+              }}
+              className="bg-gradient-to-r from-[#0891b2] via-[#059669] to-[#0891b2] bg-clip-text text-transparent"
+              style={{ backgroundSize: "200% auto" }}
+            >
+              Meet Our Team
+            </motion.span>
           </motion.h2>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
