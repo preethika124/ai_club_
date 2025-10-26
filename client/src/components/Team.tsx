@@ -4,6 +4,7 @@ import { useInView } from 'react-intersection-observer';
 import { FaLinkedin } from 'react-icons/fa';
 import { useQuery } from '@tanstack/react-query';
 import type { TeamMember } from '@shared/schema';
+import { CardContainer, CardBody, CardItem } from '@/components/ui/3d-card';
 
 const categories = [
   { id: 'all', label: 'All Members' },
@@ -173,60 +174,72 @@ export default function Team() {
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.4, delay: index * 0.05 }}
-              whileHover={{
-                y: -8,
-                transition: { duration: 0.3 }
-              }}
-              className="group bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all duration-300 relative overflow-hidden"
               data-testid={`card-team-${member.name.toLowerCase().replace(/\s+/g, '-')}`}
             >
-              {/* Gradient Border on Hover */}
-              <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-[#0891b2] to-[#059669] opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10" />
-              <div className="absolute inset-0.5 rounded-2xl bg-white -z-10" />
-
-              {/* Avatar */}
-              <div className="flex justify-center mb-4">
-                <div className="relative">
-                  {/* Outer Gradient Ring */}
-                  <div className="w-32 h-32 rounded-full bg-gradient-to-r from-[#0891b2] to-[#059669] p-1">
-                    {/* White Ring */}
-                    <div className="w-full h-full rounded-full bg-white p-1">
-                      {/* Avatar */}
-                      <div
-                        className="w-full h-full rounded-full flex items-center justify-center text-white text-2xl font-bold"
-                        style={{ backgroundColor: member.avatarColor }}
-                      >
-                        {getInitials(member.name)}
+              <CardContainer className="inter-var">
+                <CardBody className="bg-white relative group/card hover:shadow-2xl hover:shadow-[#0891b2]/20 border border-[#e2e8f0] w-full h-auto rounded-2xl p-6">
+                  {/* Avatar */}
+                  <CardItem translateZ="50" className="flex justify-center mb-4">
+                    <div className="relative">
+                      {/* Outer Gradient Ring */}
+                      <div className="w-32 h-32 rounded-full bg-gradient-to-r from-[#0891b2] to-[#059669] p-1">
+                        {/* White Ring */}
+                        <div className="w-full h-full rounded-full bg-white p-1">
+                          {/* Avatar */}
+                          <div
+                            className="w-full h-full rounded-full flex items-center justify-center text-white text-2xl font-bold"
+                            style={{ backgroundColor: member.avatarColor }}
+                          >
+                            {getInitials(member.name)}
+                          </div>
+                        </div>
                       </div>
                     </div>
+                  </CardItem>
+
+                  {/* Info */}
+                  <div className="text-center">
+                    <CardItem
+                      translateZ="60"
+                      as="h3"
+                      className="text-lg font-bold text-[#0f172a] mb-1"
+                      data-testid={`text-member-name-${member.id}`}
+                    >
+                      {member.name}
+                    </CardItem>
+                    <CardItem
+                      translateZ="50"
+                      as="p"
+                      className="text-base font-semibold mb-1 bg-gradient-to-r from-[#0891b2] to-[#059669] bg-clip-text text-transparent"
+                      data-testid={`text-member-role-${member.id}`}
+                    >
+                      {member.role}
+                    </CardItem>
+                    {member.department && (
+                      <CardItem
+                        translateZ="40"
+                        as="p"
+                        className="text-sm text-[#475569] mb-4"
+                        data-testid={`text-member-department-${member.id}`}
+                      >
+                        {member.department}
+                      </CardItem>
+                    )}
+
+                    {/* LinkedIn */}
+                    <CardItem translateZ="70" className="flex justify-center">
+                      <a
+                        href={member.linkedIn || "#"}
+                        className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#f1f5f9] text-[#475569] hover:bg-gradient-to-r hover:from-[#0891b2] hover:to-[#059669] hover:text-white transition-all duration-300"
+                        aria-label={`${member.name} LinkedIn`}
+                        data-testid={`link-linkedin-${member.name.toLowerCase().replace(/\s+/g, '-')}`}
+                      >
+                        <FaLinkedin className="w-5 h-5" />
+                      </a>
+                    </CardItem>
                   </div>
-                </div>
-              </div>
-
-              {/* Info */}
-              <div className="text-center">
-                <h3 className="text-lg font-bold text-[#0f172a] mb-1" data-testid={`text-member-name-${member.id}`}>
-                  {member.name}
-                </h3>
-                <p className="text-base font-semibold mb-1 bg-gradient-to-r from-[#0891b2] to-[#059669] bg-clip-text text-transparent" data-testid={`text-member-role-${member.id}`}>
-                  {member.role}
-                </p>
-                {member.department && (
-                  <p className="text-sm text-[#475569] mb-4" data-testid={`text-member-department-${member.id}`}>
-                    {member.department}
-                  </p>
-                )}
-
-                {/* LinkedIn */}
-                <a
-                  href={member.linkedIn || "#"}
-                  className="inline-flex items-center justify-center w-10 h-10 rounded-full bg-[#f1f5f9] text-[#475569] hover:bg-gradient-to-r hover:from-[#0891b2] hover:to-[#059669] hover:text-white transition-all duration-300"
-                  aria-label={`${member.name} LinkedIn`}
-                  data-testid={`link-linkedin-${member.name.toLowerCase().replace(/\s+/g, '-')}`}
-                >
-                  <FaLinkedin className="w-5 h-5" />
-                </a>
-              </div>
+                </CardBody>
+              </CardContainer>
             </motion.div>
           ))}
         </div>
