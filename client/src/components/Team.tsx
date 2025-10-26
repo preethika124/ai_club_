@@ -63,7 +63,7 @@ export default function Team() {
               type: "spring",
               stiffness: 100
             }}
-            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight"
+            className="text-4xl md:text-5xl font-bold mb-4 tracking-tight relative"
           >
             <motion.span
               initial={{ backgroundPosition: "0% 50%" }}
@@ -71,14 +71,50 @@ export default function Team() {
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               } : {}}
               transition={{
-                duration: 5,
+                duration: 3,
                 ease: "linear",
                 repeat: Infinity,
               }}
-              className="bg-gradient-to-r from-[#0891b2] via-[#059669] to-[#0891b2] bg-clip-text text-transparent"
+              className="relative inline-block bg-gradient-to-r from-[#0891b2] via-[#10b981] via-[#06b6d4] to-[#0891b2] bg-clip-text text-transparent"
               style={{ backgroundSize: "200% auto" }}
             >
               Meet Our Team
+              <motion.span
+                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/90 to-transparent bg-clip-text text-transparent"
+                initial={{ x: "-100%" }}
+                animate={{ x: "200%" }}
+                transition={{
+                  duration: 2.5,
+                  ease: "linear",
+                  repeat: Infinity,
+                  repeatDelay: 0.5,
+                }}
+                style={{ 
+                  backgroundSize: "50% 100%",
+                  filter: "blur(1px)",
+                }}
+              >
+                Meet Our Team
+              </motion.span>
+              <motion.span
+                className="absolute inset-0 opacity-60"
+                animate={{
+                  filter: [
+                    "drop-shadow(0 0 8px rgba(8, 145, 178, 0.6)) drop-shadow(0 0 16px rgba(16, 185, 129, 0.4))",
+                    "drop-shadow(0 0 16px rgba(16, 185, 129, 0.6)) drop-shadow(0 0 24px rgba(8, 145, 178, 0.4))",
+                    "drop-shadow(0 0 8px rgba(8, 145, 178, 0.6)) drop-shadow(0 0 16px rgba(16, 185, 129, 0.4))",
+                  ],
+                }}
+                transition={{
+                  duration: 2,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                }}
+              >
+                <span className="bg-gradient-to-r from-[#0891b2] via-[#10b981] via-[#06b6d4] to-[#0891b2] bg-clip-text text-transparent" style={{ backgroundSize: "200% auto" }}>
+                  Meet Our Team
+                </span>
+              </motion.span>
             </motion.span>
           </motion.h2>
           <motion.div
