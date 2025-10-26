@@ -129,26 +129,30 @@ export default function Team() {
                 scale: 1.05,
                 boxShadow: "0 0 0 2px rgba(8, 145, 178, 0.3)"
               }}
-              whileTap={{ 
-                rotateY: [0, 180, 360],
-                scale: [1, 1.2, 1],
-                transition: { 
-                  duration: 0.5,
-                  ease: "easeInOut"
+              animate={activeCategory === category.id ? {
+                boxShadow: [
+                  "0 0 0 0px rgba(8, 145, 178, 0.4)",
+                  "0 0 0 8px rgba(8, 145, 178, 0)",
+                  "0 0 0 0px rgba(8, 145, 178, 0)"
+                ],
+              } : {}}
+              transition={activeCategory === category.id ? {
+                boxShadow: {
+                  duration: 0.6,
+                  ease: "easeOut"
                 }
-              }}
+              } : {}}
               className={`px-6 py-3 rounded-full font-semibold text-sm transition-all duration-300 relative overflow-visible ${
                 activeCategory === category.id
                   ? 'bg-gradient-to-r from-[#0891b2] to-[#059669] text-white shadow-lg'
                   : 'bg-white text-[#475569] border-2 border-transparent hover:border-[#0891b2]'
               }`}
               style={{ 
-                cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'%230891b2\'><path d=\'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\'/></svg>") 12 12, pointer',
-                transformStyle: 'preserve-3d'
+                cursor: 'url("data:image/svg+xml;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\' width=\'24\' height=\'24\' viewBox=\'0 0 24 24\' fill=\'%230891b2\'><path d=\'M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z\'/></svg>") 12 12, pointer'
               }}
               data-testid={`button-filter-${category.id}`}
             >
-              <span className="relative z-10" style={{ backfaceVisibility: 'hidden' }}>
+              <span className="relative z-10">
                 {category.label}
               </span>
               <motion.span
